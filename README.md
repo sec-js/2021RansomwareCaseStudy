@@ -10,16 +10,20 @@
 
 ## File encryption utility
 
-This repository now includes `file_encryption.py`, a simple password-based file encryption/decryption CLI.
+This repository includes `file_encryption.py`, a defensive file encryption/decryption CLI that uses **GnuPG symmetric encryption with AES-256**.
+
+### Requirements
+
+- `gpg` (GnuPG 2.x) installed and available in `PATH`.
 
 ### Encrypt a file
 
 ```bash
-python3 file_encryption.py encrypt <input_file> <output_file> --password "your-password"
+python3 file_encryption.py encrypt <input_file> <output_file.gpg> --password "your-password"
 ```
 
 ### Decrypt a file
 
 ```bash
-python3 file_encryption.py decrypt <encrypted_file> <output_file> --password "your-password"
+python3 file_encryption.py decrypt <output_file.gpg> <decrypted_file> --password "your-password"
 ```
